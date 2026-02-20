@@ -256,10 +256,6 @@ Then pass it to the actions or bind it in Laravel's container.
 
 ```bash
 composer test
-composer test:coverage
-composer test:types
-composer analyse
-composer format
 ```
 
 ## Credits
