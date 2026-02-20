@@ -1,0 +1,86 @@
+{
+    "name": "mrpunyapal/php-2fa",
+    "description": "Framework-agnostic Two-Factor Authentication actions for PHP with optional Laravel support",
+    "keywords": ["2fa", "totp", "two-factor", "authentication", "otp", "google-authenticator", "authy", "laravel", "php"],
+    "homepage": "https://github.com/mrpunyapal/php-2fa",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Punyapal Shah",
+            "email": "mrpunyapal@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "pragmarx/google2fa": "^9.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.14",
+        "larastan/larastan": "^3.0",
+        "nunomaduro/collision": "^8.8",
+        "orchestra/testbench": "^10.0|^9.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-arch": "^3.0",
+        "pestphp/pest-plugin-type-coverage": "^3.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "rector/rector": "^2.0",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "suggest": {
+        "illuminate/contracts": "Required for Laravel integration (^11.0|^12.0)",
+        "illuminate/support": "Required for Laravel integration (^11.0|^12.0)",
+        "spatie/laravel-package-tools": "Required for Laravel integration (^1.16)"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mrpunyapal\\Php2fa\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mrpunyapal\\Php2fa\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": [
+            "rector",
+            "pint --parallel"
+        ],
+        "refactor": "rector",
+        "test:lint": [
+            "rector --dry-run",
+            "pint --test --parallel"
+        ],
+        "test:refactor": "rector --dry-run",
+        "test:types": "phpstan analyse",
+        "test:arch": "pest --filter=arch",
+        "test:type-coverage": "pest --type-coverage --min=100",
+        "test:unit": "pest --parallel --coverage --min=100",
+        "test": [
+            "@test:lint",
+            "@test:refactor",
+            "@test:types",
+            "@test:type-coverage",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mrpunyapal\\Php2fa\\Laravel\\TwoFactorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
