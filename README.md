@@ -7,6 +7,8 @@
 
 Framework-agnostic Two-Factor Authentication (TOTP) actions for PHP. Works with any authenticator app (Google Authenticator, Authy, etc.). Optional first-party Laravel support included.
 
+Inspired by [Laravel Fortify](https://github.com/laravel/fortify) 🫶. 
+
 Built on top of [`pragmarx/google2fa`](https://github.com/antonioribeiro/google2fa).
 
 ## Features
