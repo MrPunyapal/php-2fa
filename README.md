@@ -2,14 +2,11 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mrpunyapal/php-2fa.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/php-2fa)
 [![Tests](https://github.com/mrpunyapal/php-2fa/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/mrpunyapal/php-2fa/actions/workflows/run-tests.yml)
-[![PHPStan](https://github.com/mrpunyapal/php-2fa/actions/workflows/phpstan.yml/badge.svg?branch=main)](https://github.com/mrpunyapal/php-2fa/actions/workflows/phpstan.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/mrpunyapal/php-2fa.svg?style=flat-square)](https://packagist.org/packages/mrpunyapal/php-2fa)
 
 Framework-agnostic Two-Factor Authentication (TOTP) actions for PHP. Works with any authenticator app (Google Authenticator, Authy, etc.). Optional first-party Laravel support included.
 
-Inspired by [Laravel Fortify](https://github.com/laravel/fortify) 🫶. 
-
-Built on top of [`pragmarx/google2fa`](https://github.com/antonioribeiro/google2fa).
+Inspired by [Laravel Fortify](https://github.com/laravel/fortify) and built on top of [`pragmarx/google2fa`](https://github.com/antonioribeiro/google2fa).
 
 ## Features
 
