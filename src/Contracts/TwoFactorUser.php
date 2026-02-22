@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Contracts;
+namespace MrPunyapal\Php2fa\Contracts;
 
 use DateTimeImmutable;
 

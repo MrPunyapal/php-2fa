@@ -43,7 +43,7 @@ php artisan vendor:publish --tag="two-factor-config"
 ### 1. Implement `TwoFactorUser` on your user entity
 
 ```php
-use Mrpunyapal\Php2fa\Contracts\TwoFactorUser;
+use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
 use DateTimeImmutable;
 
 class User implements TwoFactorUser
@@ -90,7 +90,7 @@ class User implements TwoFactorUser
 ### 2. Use `TwoFactorManager`
 
 ```php
-use Mrpunyapal\Php2fa\TwoFactorManager;
+use MrPunyapal\Php2fa\TwoFactorManager;
 
 $manager = TwoFactorManager::create(
     issuer: 'My App',
@@ -121,13 +121,13 @@ $manager->disable($user);
 If you prefer dependency injection or want granular control:
 
 ```php
-use Mrpunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\VerifyTwoFactorCode;
-use Mrpunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\GenerateRecoveryCodes;
-use Mrpunyapal\Php2fa\Services\TwoFactorService;
-use Mrpunyapal\Php2fa\Support\OpenSslEncryptor;
+use MrPunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\VerifyTwoFactorCode;
+use MrPunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\GenerateRecoveryCodes;
+use MrPunyapal\Php2fa\Services\TwoFactorService;
+use MrPunyapal\Php2fa\Support\OpenSslEncryptor;
 
 $service = new TwoFactorService(issuer: 'My App');
 $encryptor = new OpenSslEncryptor('your-secret-key');
@@ -153,8 +153,8 @@ $disable($user);
 ### Add the trait to your User model
 
 ```php
-use Mrpunyapal\Php2fa\Contracts\TwoFactorUser;
-use Mrpunyapal\Php2fa\Laravel\Concerns\HasTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
+use MrPunyapal\Php2fa\Laravel\Concerns\HasTwoFactorAuthentication;
 
 class User extends Authenticatable implements TwoFactorUser
 {
@@ -175,7 +175,7 @@ Schema::table('users', function (Blueprint $table) {
 ### Inject actions or manager
 
 ```php
-use Mrpunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
 
 class TwoFactorController extends Controller
 {
@@ -212,7 +212,7 @@ return [
 Implement the `Encryptor` contract to use your own encryption strategy:
 
 ```php
-use Mrpunyapal\Php2fa\Contracts\Encryptor;
+use MrPunyapal\Php2fa\Contracts\Encryptor;
 
 class MyEncryptor implements Encryptor
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Support;
+namespace MrPunyapal\Php2fa\Support;
 
 final class RecoveryCode
 {

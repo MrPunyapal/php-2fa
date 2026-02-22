@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Schema;
-use Mrpunyapal\Php2fa\Tests\Stubs\TestEloquentUser;
+use MrPunyapal\Php2fa\Tests\Stubs\TestEloquentUser;
 
 beforeEach(function (): void {
     Schema::create('users', function ($table): void {

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Enums\Algorithm;
-use Mrpunyapal\Php2fa\Services\TwoFactorService;
+use MrPunyapal\Php2fa\Enums\Algorithm;
+use MrPunyapal\Php2fa\Services\TwoFactorService;
 
 describe('TwoFactorService', function (): void {
     it('generates a secret key with the configured length', function (): void {

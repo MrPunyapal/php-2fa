@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Tests\Stubs\TestUser;
+use MrPunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Tests\Stubs\TestUser;
 
 describe('DisableTwoFactorAuthentication', function (): void {
     it('clears all two factor fields', function (): void {

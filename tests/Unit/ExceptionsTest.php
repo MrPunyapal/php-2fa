@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Exceptions\EncryptionException;
-use Mrpunyapal\Php2fa\Exceptions\InvalidOtpException;
-use Mrpunyapal\Php2fa\Exceptions\TwoFactorAlreadyEnabledException;
-use Mrpunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
+use MrPunyapal\Php2fa\Exceptions\EncryptionException;
+use MrPunyapal\Php2fa\Exceptions\InvalidOtpException;
+use MrPunyapal\Php2fa\Exceptions\TwoFactorAlreadyEnabledException;
+use MrPunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
 
 describe('Exceptions', function (): void {
     it('creates InvalidOtpException', function (): void {

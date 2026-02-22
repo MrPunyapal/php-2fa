@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Enums\Algorithm;
-use Mrpunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
-use Mrpunyapal\Php2fa\Tests\Stubs\TestUser;
-use Mrpunyapal\Php2fa\TwoFactorManager;
+use MrPunyapal\Php2fa\Enums\Algorithm;
+use MrPunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
+use MrPunyapal\Php2fa\Tests\Stubs\TestUser;
+use MrPunyapal\Php2fa\TwoFactorManager;
 use PragmaRX\Google2FA\Google2FA;
 
 describe('TwoFactorManager', function (): void {

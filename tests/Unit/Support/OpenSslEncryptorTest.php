@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Exceptions\EncryptionException;
-use Mrpunyapal\Php2fa\Support\OpenSslEncryptor;
+use MrPunyapal\Php2fa\Exceptions\EncryptionException;
+use MrPunyapal\Php2fa\Support\OpenSslEncryptor;
 
 describe('OpenSslEncryptor', function (): void {
     it('encrypts and decrypts a value', function (): void {

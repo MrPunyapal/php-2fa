@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Exceptions\InvalidOtpException;
-use Mrpunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
-use Mrpunyapal\Php2fa\Services\TwoFactorService;
-use Mrpunyapal\Php2fa\Support\OpenSslEncryptor;
-use Mrpunyapal\Php2fa\Tests\Stubs\TestUser;
+use MrPunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Exceptions\InvalidOtpException;
+use MrPunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
+use MrPunyapal\Php2fa\Services\TwoFactorService;
+use MrPunyapal\Php2fa\Support\OpenSslEncryptor;
+use MrPunyapal\Php2fa\Tests\Stubs\TestUser;
 use PragmaRX\Google2FA\Google2FA;
 
 describe('ConfirmTwoFactorAuthentication', function (): void {

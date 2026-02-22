@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa;
+namespace MrPunyapal\Php2fa;
 
-use Mrpunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\GenerateRecoveryCodes;
-use Mrpunyapal\Php2fa\Actions\VerifyTwoFactorCode;
-use Mrpunyapal\Php2fa\Contracts\Encryptor;
-use Mrpunyapal\Php2fa\Contracts\TwoFactorUser;
-use Mrpunyapal\Php2fa\DataTransferObjects\TwoFactorSetup;
-use Mrpunyapal\Php2fa\Enums\Algorithm;
-use Mrpunyapal\Php2fa\Services\TwoFactorService;
-use Mrpunyapal\Php2fa\Support\OpenSslEncryptor;
+use MrPunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\GenerateRecoveryCodes;
+use MrPunyapal\Php2fa\Actions\VerifyTwoFactorCode;
+use MrPunyapal\Php2fa\Contracts\Encryptor;
+use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
+use MrPunyapal\Php2fa\DataTransferObjects\TwoFactorSetup;
+use MrPunyapal\Php2fa\Enums\Algorithm;
+use MrPunyapal\Php2fa\Services\TwoFactorService;
+use MrPunyapal\Php2fa\Support\OpenSslEncryptor;
 
 final readonly class TwoFactorManager
 {

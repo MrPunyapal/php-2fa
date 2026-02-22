@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Laravel\Concerns;
+namespace MrPunyapal\Php2fa\Laravel\Concerns;
 
 use DateTimeImmutable;
 use DateTimeInterface;

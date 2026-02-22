@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Support\RecoveryCode;
+use MrPunyapal\Php2fa\Support\RecoveryCode;
 
 describe('RecoveryCode', function (): void {
     it('generates a code in the correct format', function (): void {

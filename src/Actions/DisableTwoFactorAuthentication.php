@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Actions;
+namespace MrPunyapal\Php2fa\Actions;
 
-use Mrpunyapal\Php2fa\Contracts\TwoFactorUser;
+use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
 
 final readonly class DisableTwoFactorAuthentication
 {

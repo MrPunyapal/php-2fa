@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Actions;
+namespace MrPunyapal\Php2fa\Actions;
 
-use Mrpunyapal\Php2fa\Contracts\Encryptor;
-use Mrpunyapal\Php2fa\Contracts\TwoFactorUser;
-use Mrpunyapal\Php2fa\DataTransferObjects\TwoFactorSetup;
-use Mrpunyapal\Php2fa\Services\TwoFactorService;
-use Mrpunyapal\Php2fa\Support\RecoveryCode;
+use MrPunyapal\Php2fa\Contracts\Encryptor;
+use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
+use MrPunyapal\Php2fa\DataTransferObjects\TwoFactorSetup;
+use MrPunyapal\Php2fa\Services\TwoFactorService;
+use MrPunyapal\Php2fa\Support\RecoveryCode;
 
 final readonly class EnableTwoFactorAuthentication
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Services;
+namespace MrPunyapal\Php2fa\Services;
 
-use Mrpunyapal\Php2fa\Enums\Algorithm;
+use MrPunyapal\Php2fa\Enums\Algorithm;
 use PragmaRX\Google2FA\Google2FA;
 
 final readonly class TwoFactorService

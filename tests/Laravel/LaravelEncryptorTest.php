@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Laravel\LaravelEncryptor;
+use MrPunyapal\Php2fa\Laravel\LaravelEncryptor;
 
 describe('LaravelEncryptor', function (): void {
     it('encrypts a value using laravel encrypter', function (): void {

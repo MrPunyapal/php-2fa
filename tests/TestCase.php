@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Tests;
+namespace MrPunyapal\Php2fa\Tests;
 
-use Mrpunyapal\Php2fa\Laravel\TwoFactorServiceProvider;
+use MrPunyapal\Php2fa\Laravel\TwoFactorServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

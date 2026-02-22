@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Actions;
+namespace MrPunyapal\Php2fa\Actions;
 
 use DateTimeImmutable;
-use Mrpunyapal\Php2fa\Contracts\Encryptor;
-use Mrpunyapal\Php2fa\Contracts\TwoFactorUser;
-use Mrpunyapal\Php2fa\Exceptions\InvalidOtpException;
-use Mrpunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
-use Mrpunyapal\Php2fa\Services\TwoFactorService;
+use MrPunyapal\Php2fa\Contracts\Encryptor;
+use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
+use MrPunyapal\Php2fa\Exceptions\InvalidOtpException;
+use MrPunyapal\Php2fa\Exceptions\TwoFactorNotEnabledException;
+use MrPunyapal\Php2fa\Services\TwoFactorService;
 
 final readonly class ConfirmTwoFactorAuthentication
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Enums\Algorithm;
+use MrPunyapal\Php2fa\Enums\Algorithm;
 
 describe('Algorithm', function (): void {
     it('has three cases', function (): void {

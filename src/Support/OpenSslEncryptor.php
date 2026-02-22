@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Support;
+namespace MrPunyapal\Php2fa\Support;
 
-use Mrpunyapal\Php2fa\Contracts\Encryptor;
-use Mrpunyapal\Php2fa\Exceptions\EncryptionException;
+use MrPunyapal\Php2fa\Contracts\Encryptor;
+use MrPunyapal\Php2fa\Exceptions\EncryptionException;
 
 final readonly class OpenSslEncryptor implements Encryptor
 {

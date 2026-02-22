@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Laravel;
+namespace MrPunyapal\Php2fa\Laravel;
 
 use Illuminate\Contracts\Encryption\StringEncrypter;
-use Mrpunyapal\Php2fa\Contracts\Encryptor;
+use MrPunyapal\Php2fa\Contracts\Encryptor;
 
 final readonly class LaravelEncryptor implements Encryptor
 {

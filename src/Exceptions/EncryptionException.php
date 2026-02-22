@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Exceptions;
+namespace MrPunyapal\Php2fa\Exceptions;
 
 use RuntimeException;
 

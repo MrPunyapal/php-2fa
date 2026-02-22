@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mrpunyapal\\Php2fa\\": "src/"
+            "MrPunyapal\\Php2fa\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mrpunyapal\\Php2fa\\Tests\\": "tests/"
+            "MrPunyapal\\Php2fa\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -77,7 +77,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mrpunyapal\\Php2fa\\Laravel\\TwoFactorServiceProvider"
+                "MrPunyapal\\Php2fa\\Laravel\\TwoFactorServiceProvider"
             ]
         }
     },

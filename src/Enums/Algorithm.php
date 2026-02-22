@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Enums;
+namespace MrPunyapal\Php2fa\Enums;
 
 enum Algorithm: string
 {

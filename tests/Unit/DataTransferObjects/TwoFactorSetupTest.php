@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\DataTransferObjects\TwoFactorSetup;
+use MrPunyapal\Php2fa\DataTransferObjects\TwoFactorSetup;
 
 describe('TwoFactorSetup', function (): void {
     it('holds setup data', function (): void {

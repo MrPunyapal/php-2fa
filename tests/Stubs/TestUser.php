@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\Tests\Stubs;
+namespace MrPunyapal\Php2fa\Tests\Stubs;
 
 use DateTimeImmutable;
-use Mrpunyapal\Php2fa\Contracts\TwoFactorUser;
+use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
 
 final class TestUser implements TwoFactorUser
 {

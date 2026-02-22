@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mrpunyapal\Php2fa\DataTransferObjects;
+namespace MrPunyapal\Php2fa\DataTransferObjects;
 
 final readonly class TwoFactorSetup
 {

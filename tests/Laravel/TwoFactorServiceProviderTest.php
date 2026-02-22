@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use Mrpunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
-use Mrpunyapal\Php2fa\Actions\GenerateRecoveryCodes;
-use Mrpunyapal\Php2fa\Actions\VerifyTwoFactorCode;
-use Mrpunyapal\Php2fa\Contracts\Encryptor;
-use Mrpunyapal\Php2fa\Laravel\LaravelEncryptor;
-use Mrpunyapal\Php2fa\Services\TwoFactorService;
-use Mrpunyapal\Php2fa\TwoFactorManager;
+use MrPunyapal\Php2fa\Actions\ConfirmTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
+use MrPunyapal\Php2fa\Actions\GenerateRecoveryCodes;
+use MrPunyapal\Php2fa\Actions\VerifyTwoFactorCode;
+use MrPunyapal\Php2fa\Contracts\Encryptor;
+use MrPunyapal\Php2fa\Laravel\LaravelEncryptor;
+use MrPunyapal\Php2fa\Services\TwoFactorService;
+use MrPunyapal\Php2fa\TwoFactorManager;
 
 describe('TwoFactorServiceProvider', function (): void {
     it('binds encryptor contract', function (): void {
