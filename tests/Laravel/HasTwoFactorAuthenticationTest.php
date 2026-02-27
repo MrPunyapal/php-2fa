@@ -60,7 +60,7 @@ it('gets and sets two factor confirmed at', function (): void {
 
     expect($user->getTwoFactorConfirmedAt())->toBeNull();
 
-    $now = new DateTimeImmutable('2026-01-15 10:30:00');
+    $now = \Carbon\CarbonImmutable::parse('2026-01-15 10:30:00');
     $user->setTwoFactorConfirmedAt($now);
 
     $refreshed = $user->fresh();
@@ -116,7 +116,7 @@ it('batches saves with withoutSaving', function (): void {
     $user->withoutSaving(function ($user): void {
         $user->setTwoFactorSecret('encrypted-secret');
         $user->setTwoFactorRecoveryCodes('encrypted-codes');
-        $user->setTwoFactorConfirmedAt(new DateTimeImmutable('2026-01-15 10:30:00'));
+        $user->setTwoFactorConfirmedAt(\Carbon\CarbonImmutable::parse('2026-01-15 10:30:00'));
     });
 
     $refreshed = $user->fresh();

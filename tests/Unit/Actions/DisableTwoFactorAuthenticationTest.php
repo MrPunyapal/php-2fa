@@ -9,7 +9,7 @@ it('clears all two factor fields', function (): void {
     $user = new TestUser;
     $user->setTwoFactorSecret('encrypted-secret');
     $user->setTwoFactorRecoveryCodes('encrypted-codes');
-    $user->setTwoFactorConfirmedAt(new DateTimeImmutable);
+    $user->setTwoFactorConfirmedAt(\Carbon\CarbonImmutable::now());
 
     $action = new DisableTwoFactorAuthentication;
     ($action)($user);

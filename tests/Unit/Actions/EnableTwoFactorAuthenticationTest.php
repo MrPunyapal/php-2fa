@@ -55,7 +55,7 @@ it('stores encrypted recovery codes on the user', function (): void {
 
 it('resets confirmed at to null', function (): void {
     $user = new TestUser;
-    $user->setTwoFactorConfirmedAt(new DateTimeImmutable);
+    $user->setTwoFactorConfirmedAt(\Carbon\CarbonImmutable::now());
 
     ($this->action)($user);
 
