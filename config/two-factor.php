@@ -14,6 +14,4 @@ return [
 
     'recovery_code_count' => (int) env('TWO_FACTOR_RECOVERY_CODE_COUNT', 8),
 
-    'confirmable' => (bool) env('TWO_FACTOR_CONFIRMABLE', true),
-
 ];

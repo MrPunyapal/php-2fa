@@ -18,11 +18,40 @@ use MrPunyapal\Php2fa\Support\OpenSslEncryptor;
 
 final readonly class TwoFactorManager
 {
+    private EnableTwoFactorAuthentication $enableAction;
+
+    private DisableTwoFactorAuthentication $disableAction;
+
+    private ConfirmTwoFactorAuthentication $confirmAction;
+
+    private VerifyTwoFactorCode $verifyAction;
+
+    private GenerateRecoveryCodes $generateRecoveryCodesAction;
+
     public function __construct(
         private TwoFactorService $service,
         private Encryptor $encryptor,
         private int $recoveryCodeCount = 8,
-    ) {}
+    ) {
+        $this->enableAction = new EnableTwoFactorAuthentication(
+            service: $this->service,
+            encryptor: $this->encryptor,
+            recoveryCodeCount: $this->recoveryCodeCount,
+        );
+        $this->disableAction = new DisableTwoFactorAuthentication;
+        $this->confirmAction = new ConfirmTwoFactorAuthentication(
+            service: $this->service,
+            encryptor: $this->encryptor,
+        );
+        $this->verifyAction = new VerifyTwoFactorCode(
+            service: $this->service,
+            encryptor: $this->encryptor,
+        );
+        $this->generateRecoveryCodesAction = new GenerateRecoveryCodes(
+            encryptor: $this->encryptor,
+            count: $this->recoveryCodeCount,
+        );
+    }
 
     public static function create(
         string $issuer,
@@ -46,32 +75,22 @@ final readonly class TwoFactorManager
 
     public function enable(TwoFactorUser $user, string $holder = ''): TwoFactorSetup
     {
-        return (new EnableTwoFactorAuthentication(
-            service: $this->service,
-            encryptor: $this->encryptor,
-            recoveryCodeCount: $this->recoveryCodeCount,
-        ))($user, $holder);
+        return ($this->enableAction)($user, $holder);
     }
 
     public function disable(TwoFactorUser $user): void
     {
-        (new DisableTwoFactorAuthentication)($user);
+        ($this->disableAction)($user);
     }
 
     public function confirm(TwoFactorUser $user, string $code): void
     {
-        (new ConfirmTwoFactorAuthentication(
-            service: $this->service,
-            encryptor: $this->encryptor,
-        ))($user, $code);
+        ($this->confirmAction)($user, $code);
     }
 
     public function verify(TwoFactorUser $user, string $code): bool
     {
-        return (new VerifyTwoFactorCode(
-            service: $this->service,
-            encryptor: $this->encryptor,
-        ))($user, $code);
+        return ($this->verifyAction)($user, $code);
     }
 
     /**
@@ -79,9 +98,6 @@ final readonly class TwoFactorManager
      */
     public function regenerateRecoveryCodes(TwoFactorUser $user): array
     {
-        return (new GenerateRecoveryCodes(
-            encryptor: $this->encryptor,
-            count: $this->recoveryCodeCount,
-        ))($user);
+        return ($this->generateRecoveryCodesAction)($user);
     }
 }

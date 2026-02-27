@@ -9,6 +9,8 @@ use DateTimeInterface;
 
 trait HasTwoFactorAuthentication
 {
+    private bool $savingTwoFactor = true;
+
     public function getTwoFactorSecret(): ?string
     {
         return $this->getAttribute('two_factor_secret');
@@ -17,7 +19,7 @@ trait HasTwoFactorAuthentication
     public function setTwoFactorSecret(?string $secret): void
     {
         $this->setAttribute('two_factor_secret', $secret);
-        $this->save();
+        $this->saveTwoFactorIfEnabled();
     }
 
     public function getTwoFactorRecoveryCodes(): ?string
@@ -28,7 +30,7 @@ trait HasTwoFactorAuthentication
     public function setTwoFactorRecoveryCodes(?string $codes): void
     {
         $this->setAttribute('two_factor_recovery_codes', $codes);
-        $this->save();
+        $this->saveTwoFactorIfEnabled();
     }
 
     public function getTwoFactorConfirmedAt(): ?DateTimeImmutable
@@ -52,12 +54,35 @@ trait HasTwoFactorAuthentication
             'two_factor_confirmed_at',
             $confirmedAt?->format('Y-m-d H:i:s'),
         );
-        $this->save();
+        $this->saveTwoFactorIfEnabled();
     }
 
     public function hasEnabledTwoFactorAuthentication(): bool
     {
         return $this->getTwoFactorSecret() !== null
             && $this->getTwoFactorConfirmedAt() !== null;
+    }
+
+    /**
+     * Execute a callback with all two-factor setter saves deferred,
+     * then persist once at the end. Reduces multiple DB writes to one.
+     */
+    public function withoutSaving(callable $callback): void
+    {
+        $this->savingTwoFactor = false;
+
+        try {
+            $callback($this);
+        } finally {
+            $this->savingTwoFactor = true;
+            $this->save();
+        }
+    }
+
+    private function saveTwoFactorIfEnabled(): void
+    {
+        if ($this->savingTwoFactor) {
+            $this->save();
+        }
     }
 }
