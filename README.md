@@ -13,7 +13,7 @@ Inspired by [Laravel Fortify](https://github.com/laravel/fortify) and built on t
 - Enable / Disable / Confirm 2FA
 - Verify OTP codes
 - Recovery code generation, verification, and regeneration
-- Confirmable 2FA flow (user must verify a code before 2FA is active)
+- Enable → Confirm flow (user must verify a code before 2FA is active)
 - Framework-agnostic core — use with any PHP application
 - Optional Laravel integration with service provider, config, and Eloquent trait
 - AES-256-CBC encryption out of the box (`OpenSslEncryptor`)
@@ -52,40 +52,16 @@ class User implements TwoFactorUser
     private ?string $twoFactorRecoveryCodes = null;
     private ?DateTimeImmutable $twoFactorConfirmedAt = null;
 
-    public function getTwoFactorSecret(): ?string
-    {
-        return $this->twoFactorSecret;
-    }
-
-    public function setTwoFactorSecret(?string $secret): void
-    {
-        $this->twoFactorSecret = $secret;
-        // persist to database
-    }
-
-    public function getTwoFactorRecoveryCodes(): ?string
-    {
-        return $this->twoFactorRecoveryCodes;
-    }
-
-    public function setTwoFactorRecoveryCodes(?string $codes): void
-    {
-        $this->twoFactorRecoveryCodes = $codes;
-        // persist to database
-    }
-
-    public function getTwoFactorConfirmedAt(): ?DateTimeImmutable
-    {
-        return $this->twoFactorConfirmedAt;
-    }
-
-    public function setTwoFactorConfirmedAt(?DateTimeImmutable $confirmedAt): void
-    {
-        $this->twoFactorConfirmedAt = $confirmedAt;
-        // persist to database
-    }
+    public function getTwoFactorSecret(): ?string { return $this->twoFactorSecret; }
+    public function setTwoFactorSecret(?string $secret): void { $this->twoFactorSecret = $secret; }
+    public function getTwoFactorRecoveryCodes(): ?string { return $this->twoFactorRecoveryCodes; }
+    public function setTwoFactorRecoveryCodes(?string $codes): void { $this->twoFactorRecoveryCodes = $codes; }
+    public function getTwoFactorConfirmedAt(): ?DateTimeImmutable { return $this->twoFactorConfirmedAt; }
+    public function setTwoFactorConfirmedAt(?DateTimeImmutable $confirmedAt): void { $this->twoFactorConfirmedAt = $confirmedAt; }
 }
 ```
+
+> See [docs/examples/php/setup-two-factor.php](docs/examples/php/setup-two-factor.php) for a full PDO-backed implementation.
 
 ### 2. Use `TwoFactorManager`
 
@@ -193,6 +169,43 @@ class TwoFactorController extends Controller
 }
 ```
 
+### Batch saves with `withoutSaving()`
+
+By default, each setter on the `HasTwoFactorAuthentication` trait persists immediately. To batch multiple field changes into a single DB write:
+
+```php
+$user->withoutSaving(function ($user) {
+    $user->setTwoFactorSecret($encrypted);
+    $user->setTwoFactorRecoveryCodes($codes);
+    $user->setTwoFactorConfirmedAt(null);
+});
+// One save() call instead of three
+```
+
+## Examples
+
+Full working examples are available in the [`docs/examples/`](docs/examples/) directory.
+
+### Laravel Examples
+
+| File | Description |
+|---|---|
+| [TwoFactorController.php](docs/examples/laravel/TwoFactorController.php) | Controller with enable, confirm, verify, disable, and regenerate actions |
+| [EnsureTwoFactorVerified.php](docs/examples/laravel/EnsureTwoFactorVerified.php) | Middleware that requires 2FA verification before accessing protected routes |
+| [routes.php](docs/examples/laravel/routes.php) | Route definitions with proper middleware stacking |
+| [two-factor-verify.blade.php](docs/examples/laravel/two-factor-verify.blade.php) | Blade view for OTP / recovery code input |
+| [migration.php](docs/examples/laravel/migration.php) | Migration to add 2FA columns to users table |
+
+### PHP Examples
+
+| File | Description |
+|---|---|
+| [setup-two-factor.php](docs/examples/php/setup-two-factor.php) | Full setup flow with PDO-backed `TwoFactorUser` implementation |
+| [login-with-two-factor.php](docs/examples/php/login-with-two-factor.php) | Session-based login flow with 2FA challenge |
+| [manage-recovery-codes.php](docs/examples/php/manage-recovery-codes.php) | Regenerate, display, and verify recovery codes |
+| [qr-code-display.php](docs/examples/php/qr-code-display.php) | Render QR codes using Google Charts, chillerlan/php-qrcode, or endroid/qr-code |
+| [custom-encryptor.php](docs/examples/php/custom-encryptor.php) | Custom `Encryptor` implementation using Sodium (libsodium) |
+
 ## Configuration
 
 ```php
@@ -203,7 +216,6 @@ return [
     'window' => (int) env('TWO_FACTOR_WINDOW', 1),
     'algorithm' => env('TWO_FACTOR_ALGORITHM', 'sha1'), // sha1, sha256, sha512
     'recovery_code_count' => (int) env('TWO_FACTOR_RECOVERY_CODE_COUNT', 8),
-    'confirmable' => (bool) env('TWO_FACTOR_CONFIRMABLE', true),
 ];
 ```
 
@@ -228,7 +240,7 @@ class MyEncryptor implements Encryptor
 }
 ```
 
-Then pass it to the actions or bind it in Laravel's container.
+Then pass it to the actions or bind it in Laravel's container. See [docs/examples/php/custom-encryptor.php](docs/examples/php/custom-encryptor.php) for a complete Sodium-based implementation.
 
 ## API Reference
 
@@ -248,7 +260,6 @@ Then pass it to the actions or bind it in Laravel's container.
 |---|---|
 | `InvalidOtpException` | OTP code verification fails during confirmation |
 | `TwoFactorNotEnabledException` | Action requires 2FA to be enabled but it isn't |
-| `TwoFactorAlreadyEnabledException` | 2FA is already confirmed and active |
 | `EncryptionException` | Encryption or decryption operation fails |
 
 ## Testing
