@@ -15,10 +15,17 @@ return RectorConfig::configure()
         __DIR__.'/config',
     ])
     ->withPhpSets(php83: true)
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        codingStyle: true,
+        typeDeclarations: true,
+        privatization: true,
+        instanceOf: true,
+        earlyReturn: true,
+        carbon: true,
+    )
     ->withSets([
-        SetList::CODE_QUALITY,
-        SetList::DEAD_CODE,
-        SetList::TYPE_DECLARATION,
         PestLevelSetList::UP_TO_PEST_40,
         PestSetList::PEST_CODE_QUALITY,
         PestSetList::PEST_CHAIN,
