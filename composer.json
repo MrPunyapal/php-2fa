@@ -16,8 +16,9 @@
         "pragmarx/google2fa": "^9.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.14",
         "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.14",
+        "mrpunyapal/rector-pest": "^0.2.2",
         "nunomaduro/collision": "^8.8",
         "orchestra/testbench": "^10.0|^9.0",
         "pestphp/pest": "^3.0",
