@@ -32,4 +32,5 @@ return RectorConfig::configure()
     ->withRules([
         InlineConstructorDefaultToPropertyRector::class,
     ])
-    ->withSkip([]);
+    ->withSkip([])
+    ->withImportNames();
