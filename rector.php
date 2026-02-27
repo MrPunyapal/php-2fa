@@ -21,6 +21,7 @@ return RectorConfig::configure()
         SetList::TYPE_DECLARATION,
         PestLevelSetList::UP_TO_PEST_40,
         PestSetList::PEST_CODE_QUALITY,
+        PestSetList::PEST_CHAIN,
     ])
     ->withRules([
         InlineConstructorDefaultToPropertyRector::class,
