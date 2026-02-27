@@ -37,8 +37,6 @@ describe('RecoveryCode', function (): void {
     it('generates codes that all match the expected format', function (): void {
         $codes = RecoveryCode::generateCodes(10);
 
-        foreach ($codes as $code) {
-            expect($code)->toMatch('/^[a-zA-Z0-9]{10}-[a-zA-Z0-9]{10}$/');
-        }
+        expect($codes)->each->toMatch('/^[a-zA-Z0-9]{10}-[a-zA-Z0-9]{10}$/');
     });
 });

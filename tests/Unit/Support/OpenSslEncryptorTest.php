@@ -69,7 +69,7 @@ describe('OpenSslEncryptor', function (): void {
         $encrypted = $encryptor->encrypt('');
         $decrypted = $encryptor->decrypt($encrypted);
 
-        expect($decrypted)->toBe('');
+        expect($decrypted)->toBeEmpty();
     });
 
     it('handles long string encryption', function (): void {
