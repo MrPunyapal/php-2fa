@@ -28,11 +28,7 @@ describe('GenerateRecoveryCodes', function (): void {
 
         $codes = ($this->generateAction)($user);
 
-        expect($codes)->toHaveCount(8);
-
-        foreach ($codes as $code) {
-            expect($code)->toMatch('/^[a-zA-Z0-9]{10}-[a-zA-Z0-9]{10}$/');
-        }
+        expect($codes)->toHaveCount(8)->each->toMatch('/^[a-zA-Z0-9]{10}-[a-zA-Z0-9]{10}$/');
     });
 
     it('replaces existing recovery codes', function (): void {
