@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Carbon\CarbonImmutable;
 use MrPunyapal\Php2fa\Actions\EnableTwoFactorAuthentication;
 use MrPunyapal\Php2fa\DataTransferObjects\TwoFactorSetup;
 use MrPunyapal\Php2fa\Services\TwoFactorService;
@@ -55,7 +56,7 @@ it('stores encrypted recovery codes on the user', function (): void {
 
 it('resets confirmed at to null', function (): void {
     $user = new TestUser;
-    $user->setTwoFactorConfirmedAt(new DateTimeImmutable);
+    $user->setTwoFactorConfirmedAt(CarbonImmutable::now());
 
     ($this->action)($user);
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use MrPunyapal\Php2fa\Enums\Algorithm;
 use MrPunyapal\Php2fa\Services\TwoFactorService;
+use PragmaRX\Google2FA\Google2FA;
 
 it('generates a secret key with the configured length', function (): void {
     $service = new TwoFactorService(secretLength: 16);
@@ -42,7 +43,7 @@ it('verifies a valid otp code', function (): void {
     $service = new TwoFactorService;
     $secret = $service->generateSecretKey();
 
-    $google2fa = new PragmaRX\Google2FA\Google2FA;
+    $google2fa = new Google2FA;
     $validCode = $google2fa->getCurrentOtp($secret);
 
     expect($service->verify($secret, $validCode))->toBeTrue();
