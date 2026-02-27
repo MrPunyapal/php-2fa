@@ -30,6 +30,5 @@ class TestCase extends Orchestra
         config()->set('two-factor.window', 1);
         config()->set('two-factor.algorithm', 'sha1');
         config()->set('two-factor.recovery_code_count', 8);
-        config()->set('two-factor.confirmable', true);
     }
 }
