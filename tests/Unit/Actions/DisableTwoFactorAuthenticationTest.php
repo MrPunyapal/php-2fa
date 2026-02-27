@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Carbon\CarbonImmutable;
 use MrPunyapal\Php2fa\Actions\DisableTwoFactorAuthentication;
 use MrPunyapal\Php2fa\Tests\Stubs\TestUser;
 
@@ -9,7 +10,7 @@ it('clears all two factor fields', function (): void {
     $user = new TestUser;
     $user->setTwoFactorSecret('encrypted-secret');
     $user->setTwoFactorRecoveryCodes('encrypted-codes');
-    $user->setTwoFactorConfirmedAt(\Carbon\CarbonImmutable::now());
+    $user->setTwoFactorConfirmedAt(CarbonImmutable::now());
 
     $action = new DisableTwoFactorAuthentication;
     ($action)($user);

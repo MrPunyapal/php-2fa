@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MrPunyapal\Php2fa\Actions;
 
+use Carbon\CarbonImmutable;
 use MrPunyapal\Php2fa\Contracts\Encryptor;
 use MrPunyapal\Php2fa\Contracts\TwoFactorUser;
 use MrPunyapal\Php2fa\Exceptions\InvalidOtpException;
@@ -31,6 +32,6 @@ final readonly class ConfirmTwoFactorAuthentication
             throw InvalidOtpException::create();
         }
 
-        $user->setTwoFactorConfirmedAt(\Carbon\CarbonImmutable::now());
+        $user->setTwoFactorConfirmedAt(CarbonImmutable::now());
     }
 }
