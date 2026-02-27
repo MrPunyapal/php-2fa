@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MrPunyapal\Php2fa\Support;
 
-final class RecoveryCode
+final readonly class RecoveryCode
 {
     public static function generate(): string
     {

@@ -32,7 +32,7 @@ final class TwoFactorServiceProvider extends PackageServiceProvider
         $this->app->singleton(Encryptor::class, fn (Application $app): LaravelEncryptor => new LaravelEncryptor($app->make(StringEncrypter::class)));
 
         $this->app->singleton(TwoFactorService::class, function (Application $app): TwoFactorService {
-            /** @var array{issuer: string, secret_length: int, window: int, algorithm: string, recovery_code_count: int, confirmable: bool} $config */
+            /** @var array{issuer: string, secret_length: int, window: int, algorithm: string, recovery_code_count: int} $config */
             $config = $app['config']->get('two-factor');
 
             return new TwoFactorService(

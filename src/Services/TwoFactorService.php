@@ -18,11 +18,7 @@ final readonly class TwoFactorService
         private string $issuer = '',
     ) {
         $this->engine = new Google2FA;
-        $this->engine->setAlgorithm(match ($this->algorithm) {
-            Algorithm::Sha1 => 'sha1',
-            Algorithm::Sha256 => 'sha256',
-            Algorithm::Sha512 => 'sha512',
-        });
+        $this->engine->setAlgorithm($this->algorithm->value);
         $this->engine->setWindow($this->window);
     }
 
@@ -38,6 +34,6 @@ final readonly class TwoFactorService
 
     public function verify(string $secret, string $code): bool
     {
-        return (bool) $this->engine->verifyKey($secret, $code, $this->window);
+        return (bool) $this->engine->verifyKey($secret, $code);
     }
 }
