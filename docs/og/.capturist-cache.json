@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "entries": {
+    "actions.png": {
+      "hash": "94f9d97b47826fcd39ea08591044c3326a6014551409794ef8ceb5e14c678b72",
+      "output": "actions.png",
+      "label": "actions"
+    },
+    "configuration.png": {
+      "hash": "f6d5248cb3571881c860b38a05d90d2ea5067158f71cdc8c9ebdf19c1597d7a5",
+      "output": "configuration.png",
+      "label": "configuration"
+    },
+    "custom-encryptor.png": {
+      "hash": "ad522bbb9a14afcea535c42942e945e193566bcd79dcdcb56266b5681463bef8",
+      "output": "custom-encryptor.png",
+      "label": "custom-encryptor"
+    },
+    "index.png": {
+      "hash": "ccaf69dd66a16b5abef497b8322313b2481a542c1a4d88939e76d7b380a13479",
+      "output": "index.png",
+      "label": "index"
+    },
+    "installation.png": {
+      "hash": "1691bf530b3757213e8c16bd8463a57b4dfd5ceaa4c3cbdbdc2fb9f777e96520",
+      "output": "installation.png",
+      "label": "installation"
+    },
+    "laravel.png": {
+      "hash": "3b1287c46ca80606ca4057a172bb1932e252bfbd481e6f9a101492db17e88bce",
+      "output": "laravel.png",
+      "label": "laravel"
+    },
+    "quick-start.png": {
+      "hash": "db2d5f141cc3f6b16d1307d98944a961362fb4245baa370051d35b9ae07241a6",
+      "output": "quick-start.png",
+      "label": "quick-start"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+# Configuration
+
+# Configuration The Laravel integration ships a config file at `config/two-factor.php`. Publish it with: ```bash php artisan vendor:publish --tag="two-factor-config" ``` ## Contents ```php
+
+---
+
+# Custom Encryptor
+
+# Custom Encryptor By default the package encrypts secrets and recovery codes with AES-256-CBC via `MrPunyapal\Php2fa\Support\OpenSslEncryptor`. You can plug in any encryption strategy by implementing the `Encryptor` contract. ## Implement the contract ```php
+
+---
+
+# Individual Actions
+
+# Individual Actions If you prefer dependency injection or granular control, the package ships standalone actions plus a small service layer. ## Using the actions directly ```php
+
+---
+
+# Installation
+
+# Installation ## Requirements - PHP 8.3+ - OpenSSL extension ## Install the package ```bash composer require mrpunyapal/php-2fa ``` ## Laravel The service provider is auto-discovered. Publish the config: ```bash php artisan vendor:publish --tag="two-factor-config" ``` This copies the package config to `config/two-factor.php`. It is optional — the package works with its defaults without publishing. ## Next step - Vanilla PHP: jump to the [Quick start](quick-start/). - Laravel: jump to [Laravel usage](laravel/).
+
+---
+
+# Laravel Usage
+
+# Laravel Usage The Laravel integration adds a service provider, a config file, and an Eloquent trait. ## Add the trait to your User model ```php
+
+---
+
+# PHP 2FA
+
+# PHP 2FA Framework-agnostic Two-Factor Authentication (TOTP) actions for PHP. Works with any authenticator app (Google Authenticator, Authy, etc.), with optional first-party Laravel support. Inspired by [Laravel Fortify](https://github.com/laravel/fortify) and built on top of [`pragmarx/google2fa`](https://github.com/antonioribeiro/google2fa). ## Features - Enable / disable / confirm 2FA - Verify OTP codes - Recovery code generation, verification, and regeneration - Enable → confirm flow (a user must verify a code before 2FA is active) - Framework-agnostic core — use it with any PHP application - Optional Laravel integration with a service provider, config, and Eloquent trait - AES-256-CBC encryption out of the box (`OpenSslEncryptor`) - Bring your own encryptor via the `Encryptor` contract ## Requirements - PHP 8.3+ - OpenSSL extension ## Getting started - [Installation](installation/) — add the package to your project - [Quick start (vanilla PHP)](quick-start/) — implement `TwoFactorUser` and use `TwoFactorManager` - [Individual actions](actions/) — granular control with dependency injection - [Laravel usage](laravel/) — trait, migration, and controller wiring - [Configuration](configuration/) — config reference - [Custom encryptor](custom-encryptor/) — plug in your own encryption strategy > Full working examples are available in [`docs/examples/`](https://github.com/mrpunyapal/php-2fa/tree/main/docs/examples) — both [PHP](https://github.com/mrpunyapal/php-2fa/tree/main/docs/examples/php) and [Laravel](https://github.com/mrpunyapal/php-2fa/tree/main/docs/examples/laravel) variants.
+
+---
+
+# Quick Start (Vanilla PHP)
+
+# Quick Start (Vanilla PHP) The core is framework-agnostic — you need a `TwoFactorUser` entity and a `TwoFactorManager`. ## 1. Implement `TwoFactorUser` on your user entity ```php

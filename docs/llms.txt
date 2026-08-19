@@ -1,0 +1,12 @@
+# PHP 2FA
+> Framework-agnostic two-factor authentication (TOTP) for PHP with optional Laravel support.
+
+## Docs
+
+- https://mrpunyapal.github.io/php-2fa/configuration: Configuration
+- https://mrpunyapal.github.io/php-2fa/custom-encryptor: Custom Encryptor
+- https://mrpunyapal.github.io/php-2fa/actions: Individual Actions
+- https://mrpunyapal.github.io/php-2fa/installation: Installation
+- https://mrpunyapal.github.io/php-2fa/laravel: Laravel Usage
+- https://mrpunyapal.github.io/php-2fa/: PHP 2FA
+- https://mrpunyapal.github.io/php-2fa/quick-start: Quick Start (Vanilla PHP)
