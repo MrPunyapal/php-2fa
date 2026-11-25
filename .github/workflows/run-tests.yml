@@ -10,10 +10,10 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        php: [8.3, 8.4, 8.5]
+        php: [8.3, 8.4, 8.5, 8.6]
         stability: [prefer-stable]
 
     name: P${{ matrix.php }} - ${{ matrix.stability }} - ${{ matrix.os }}
@@ -28,6 +28,10 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo, openssl
           coverage: pcov
+
+      - name: Use PHP 8.6 compatible test dependencies
+        if: matrix.php == '8.6'
+        run: composer require --dev "orchestra/testbench:^11.0" "pestphp/pest:^5.0" "pestphp/pest-plugin-arch:^5.0" "pestphp/pest-plugin-type-coverage:^5.1.1" --no-interaction --no-update
 
       - name: Install dependencies
         run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
